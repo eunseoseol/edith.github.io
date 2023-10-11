@@ -8,27 +8,30 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
-            background-image: url('assets/background.png'); /* Replace 'background.png' with your image path */
+            background-image: url('assets/background.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            color: white; /* 텍스트 색상을 흰색으로 지정 */
+            color: white;
         }
-        /* Add any other custom styles here if needed */
+
+        .scroll-container {
+            max-height: 400px;
+            overflow-y: scroll;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <!-- 회색 박스 제거 -->
-        <!-- <div id="infobox"> -->
-            <div class="text-center header">
-                <p id="title1" style="color: white;">Edith - Your Personal Assistant</p>
-                <p id="title2" style="color: white;">Your Virtual Helper</p>
-                <p id="title3" style="color: white;">Always Ready to Assist</p>
-            </div>
-            <h3 class="center-block divider" style="background-color: white;"></h3>
-            <h3 class="text-center quote" style="color: white;"><em>"Meet Edith, your personal assistant in the digital world. She's here to help you with tasks, answer questions, and make your life easier."</em></h3>
-            <img class="center-block smaller-image" src="assets/edith.jpg" alt="Edith - Your Personal Assistant">
+        <div class="text-center header">
+            <p id="title1" style="color: white;">Edith - Your Personal Assistant</p>
+            <p id="title2" style="color: white;">Your Virtual Helper</p>
+            <p id="title3" style="color: white;">Always Ready to Assist</p>
+        </div>
+        <h3 class="center-block divider" style="background-color: white;"></h3>
+        <h3 class="text-center quote" style="color: white;"><em>"Meet Edith, your personal assistant in the digital world. She's here to help you with tasks, answer questions, and make your life easier."</em></h3>
+        <img class="center-block smaller-image" src="assets/edith.jpg" alt="Edith - Your Personal Assistant">
+        <div class="scroll-container"> <!-- This is the scroll container -->
             <h3 class="text-center" style="color: white;">Features of Edith:</h3>
             <ul class="verticalLine" style="color: white;">
                 <li><strong>Voice Commands:</strong> Control Edith with your voice. Simply ask her to do tasks, answer questions, or provide information.</li>
@@ -36,14 +39,26 @@
                 <li><strong>24/7 Availability:</strong> Edith is available 24/7, ready to assist you whenever you need help.</li>
                 <!-- Add more features here -->
             </ul>
-            <img class="center-block smaller-image" src="assets/glasses.jpg" alt="Edith Glasses - Your Personal Assistant">
-            <img class="center-block smaller-image" src="assets/drone.jpg" alt="Edith Drone - Your Personal Assistant">
-            <h3 class="text-center quote" style="color: white;"><em>"Experience the future of personal assistance with Edith. Say goodbye to manual tasks and hello to convenience."</em></h3>
-            <p id="learn-more" class="text-center quote"><a href="https://www.edithassistant.com" style="color: white;">Learn more about Edith and her capabilities on our website.</a></p>
-        <!-- </div> -->
+        </div> <!-- End of the scroll container -->
+
+        <!-- 버튼으로 만든 이미지 추가 -->
+        <button id="glasses-button" style="background: none; border: none; cursor: pointer;">
+            <img src="assets/glasses.jpg" alt="Edith Glasses - Your Personal Assistant">
+        </button>
+
+        <img class="center-block smaller-image" src="assets/drone.jpg" alt="Edith Drone - Your Personal Assistant">
+        
+        <h3 class="text-center quote" style="color: white;"><em>"Experience the future of personal assistance with Edith. Say goodbye to manual tasks and hello to convenience."</em></h3>
+        <p id="learn-more" class="text-center quote"><a href="https://www.edith3141.com" style="color: white;">Learn more about Edith and her capabilities on our website.</a></p>
         <p class="center-block text-center divider" style="background-color: white;" id="bottom-divider">Designed and Developed by <a href="https://github.com/YourUsername" style="color: white;">Your Name</a></p>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="js/index.js"></script>
+    <script>
+        // 버튼 클릭 시 새 페이지 열기
+        document.getElementById('glasses-button').addEventListener('click', function() {
+            window.open('glasses.html', '_blank');
+        });
+    </script>
 </body>
 </html>
