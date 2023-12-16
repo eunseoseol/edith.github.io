@@ -76,21 +76,21 @@ export default function Page() {
             <div style={{ paddingBottom: '40px' }}>
           <a href="https://www.instagram.com/edith3.141/" style={{
             }}>
-                  <img src="/instagram.png" alt="instagram" style={{ position: 'absolute', right: 30, top: '700%', maxWidth: '5%', marginBottom: '120px' }} />
+                  <img src="/instagram.png" alt="instagram" style={{ position: 'absolute', right: 30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
   
             </a>
             <a href="https://twitter.com/edith3141" style={{
             }}>
-                  <img src="/x.png" alt="x" style={{ position: 'absolute', left: -30, top: '700%', maxWidth: '5%', marginBottom: '120px' }} />
+                  <img src="/x.png" alt="x" style={{ position: 'absolute', left: -30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
             </a>
             <a href="https://www.tiktok.com/@edith3.141" style={{
             }}>
-                  <img src="/tiktok.png" alt="tiktok" style={{ position: 'absolute', right: -30, top: '700%', maxWidth: '5%', marginBottom: '120px' }} />
+                  <img src="/tiktok.png" alt="tiktok" style={{ position: 'absolute', right: -30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
   
             </a>
             <a href="https://medium.com/@edith3141" style={{
             }}>
-                  <img src="/medium.png" alt="medium" style={{ position: 'absolute', left: 30, top: '700%',  maxWidth: '5%', marginBottom: '10%'}} />
+                  <img src="/medium.png" alt="medium" style={{ position: 'absolute', left: 30, top: '740%',  maxWidth: '5%', marginBottom: '10%'}} />
   
   
             </a>
