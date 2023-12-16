@@ -2,16 +2,12 @@
 
 // Page.js
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { UserAuth } from './context/AuthContext';
-import { loadTossPayments } from "@tosspayments/payment-sdk";
-import { db } from './firebase'; // Firestore 데이터베이스를 임포트합니다.
-import { doc, updateDoc } from "firebase/firestore"; // Firestore의 문서 업데이트 함수를 임포트합니다.
 
 export default function Page() {
   const { user, googleSignIn, logOut } = UserAuth();
-
+  const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const hoverStyle = {
@@ -20,7 +16,15 @@ export default function Page() {
     transition: 'transform 0.3s ease-in-out'
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px 미만을 모바일로 간주합니다.
+    };
 
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const checkAuthentication = async () => {
@@ -29,12 +33,16 @@ export default function Page() {
     };
     checkAuthentication();
   }, [user]);
-  // 결제 성공 페이지에서 호출될 때 사용자 데이터를 업데이트합니다.
-  useEffect(() => {
-    if (window.location.pathname === '/api/payments/success') {
-      updateUserData();
-    }
-  }, []);
+
+  // 이곳에 다른 useEffect 훅들 및 로직 추가...
+
+  if (isMobile) {
+    return (
+      <div style={{ textAlign: 'center', padding: '20px' }}>
+        <p>데스크톱으로 접속해주세요.</p>
+      </div>
+    );
+  }
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
