@@ -49,8 +49,7 @@ export default function Page() {
   }}>
   
   <a href="https://apps.apple.com/us/app/edith-space-assistant/id6450296741"
-               onMouseOver={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.55)'}
-               onMouseOut={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.5)'}
+             
             >
               <img src="/book.png" alt="Book" style={{maxWidth: '50%'}} />
             </a>
