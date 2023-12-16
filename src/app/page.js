@@ -52,7 +52,7 @@ export default function Page() {
                onMouseOver={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.55)'}
                onMouseOut={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.5)'}
             >
-              <img src="/book.png" alt="Book" style={maxWidth: '50%'} />
+              <img src="/book.png" alt="Book" style={{maxWidth: '50%'}} />
             </a>
   
             <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
