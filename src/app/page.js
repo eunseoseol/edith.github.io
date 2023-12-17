@@ -31,7 +31,8 @@ export default function Page() {
   // 이곳에 다른 useEffect 훅들 및 로직 추가...
 
   if (isMobile) {
-    return (
+
+ return (
       <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
   
       <video autoPlay loop muted playsInline style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', zIndex: -1 }}>
@@ -48,20 +49,31 @@ export default function Page() {
           <div style={{ position: 'relative', zIndex: 1, paddingBottom: '40px', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',marginTop: '-50px' // Move the whole block up by 50px
   }}>
   
-  <a href="https://apps.apple.com/us/app/edith-space-assistant/id6450296741"
-             
+  <a   href="https://apps.apple.com/us/app/edith-space-assistant/id6450296741"
+               onMouseOver={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.55)'}
+               onMouseOut={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.5)'}
             >
-              <img src="/book.png" alt="Book" style={{maxWidth: '50%'}} />
+              <img src="/book.png" alt="Book" style={mobilehoverStyle} />
             </a>
   
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
-              Introducing the 
+            <h1 style={{ fontSize: '16px', fontWeight: 'bold', color: 'white' }}>
+            E.D.I.T.H
             </h1>
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
-       Space Assistant, E.D.I.T.H.
+            <h1 style={{ fontSize: '16px', fontWeight: 'bold', color: 'white' }}>
+        Even Dead I'm The Hero.
+
+            </h1>
+           
+          {/* book1.png on the left */}
          
+        
+           
+  
           
   
+          
+  
+        </div>
        
         </main>
        
@@ -70,6 +82,15 @@ export default function Page() {
       </div>
   
     );
+
+
+
+
+
+
+
+
+  
   }
 
   return (
