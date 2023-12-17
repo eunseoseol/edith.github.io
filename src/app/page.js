@@ -39,7 +39,7 @@ export default function Page() {
       <source src="/background.mp4" type="video/mp4" />
     </video>
   
-  <div style={{ position: 'relative', zIndex: 1, width: '100%', paddingTop: '20px', paddingBottom: '100px', height: 'calc(100vh - 20px)', overflowY: 'scroll', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', alignItems: 'center' }}>
+  <div style={{ position: 'relative', zIndex: 1, width: '100%', paddingTop: '20px', paddingBottom: '100px', height: 'calc(100vh - 20px)',  display: 'flex', flexDirection: 'column', alignItems: 'flex-start', alignItems: 'center' }}>
   
       
             <main className="p-4" style={{ height: '100vh' }}>
@@ -59,45 +59,7 @@ export default function Page() {
             </h1>
             <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
        Space Assistant, E.D.I.T.H.
-            </h1>
-           
-          {/* book1.png on the left */}
-          <img src="/book1.png" alt="Book1"style={{ position: 'absolute',  top: '100%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book2.png" alt="Book2" style={{ position: 'absolute',  top: '180%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book3.png" alt="Book3" style={{ position: 'absolute', top: '260%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book4.png" alt="Book4" style={{ position: 'absolute', top: '340%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book5.png" alt="Book5" style={{ position: 'absolute', top: '420%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book6.png" alt="Book6" style={{ position: 'absolute',  top: '500%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book7.png" alt="Book7" style={{ position: 'absolute', top: '580%', maxWidth: '75%', marginBottom: '20px' }} />
-          <img src="/book8.png" alt="Book8" style={{ position: 'absolute', top: '660%', maxWidth: '75%', marginBottom: '20px' }} />
-          <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: 'white', position: 'absolute', top: '500%',  }}> 
-            </h1>
-            <div style={{ paddingBottom: '40px' }}>
-          <a href="https://www.instagram.com/edith3.141/" style={{
-            }}>
-                  <img src="/instagram.png" alt="instagram" style={{ position: 'absolute', right: 30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
-  
-            </a>
-            <a href="https://twitter.com/edith3141" style={{
-            }}>
-                  <img src="/x.png" alt="x" style={{ position: 'absolute', left: -30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
-            </a>
-            <a href="https://www.tiktok.com/@edith3.141" style={{
-            }}>
-                  <img src="/tiktok.png" alt="tiktok" style={{ position: 'absolute', right: -30, top: '740%', maxWidth: '5%', marginBottom: '120px' }} />
-  
-            </a>
-            <a href="https://medium.com/@edith3141" style={{
-            }}>
-                  <img src="/medium.png" alt="medium" style={{ position: 'absolute', left: 30, top: '740%',  maxWidth: '5%', marginBottom: '10%'}} />
-  
-  
-            </a>
-  
-            </div>
-  
-          
-  
+         
           
   
         </div>
