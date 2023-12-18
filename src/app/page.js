@@ -9,12 +9,10 @@ export default function Page() {
   const hoverStyle = {
     maxWidth: '150px',
     marginBottom: '20px',
-    transition: 'transform 0.3s ease-in-out'
   };
   const mobilehoverStyle = {
-    maxWidth: '150px',
-    marginBottom: '0px',
-    transition: 'transform 0.3s ease-in-out'
+    maxWidth: '80px',
+    marginBottom: '10px',
   };
   useEffect(() => {
     const handleResize = () => {
@@ -27,7 +25,7 @@ export default function Page() {
   }, []);
 
  
-
+//https://apps.apple.com/us/app/edith-space-assistant/id6450296741
   // 이곳에 다른 useEffect 훅들 및 로직 추가...
 
   if (isMobile) {
@@ -49,8 +47,6 @@ export default function Page() {
   }}>
   
   <a   href="https://apps.apple.com/us/app/edith-space-assistant/id6450296741"
-               onMouseOver={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.55)'}
-               onMouseOut={(e) => e.currentTarget.firstChild.style.transform = 'scale(0.5)'}
             >
               <img src="/book.png" alt="Book" style={mobilehoverStyle} />
             </a>
@@ -59,7 +55,7 @@ export default function Page() {
             E.D.I.T.H
             </h1>
             <h1 style={{ fontSize: '16px', fontWeight: 'bold', color: 'white' }}>
-        Even Dead I'm The Hero.
+         Even Dead I'm The Hero
 
             </h1>
            
@@ -101,8 +97,6 @@ export default function Page() {
 }}>
 
 <a   href="https://apps.apple.com/us/app/edith-space-assistant/id6450296741"
-             onMouseOver={(e) => e.currentTarget.firstChild.style.transform = 'scale(1.1)'}
-             onMouseOut={(e) => e.currentTarget.firstChild.style.transform = 'scale(1)'}
           >
             <img src="/book.png" alt="Book" style={hoverStyle} />
           </a>
@@ -111,7 +105,7 @@ export default function Page() {
            E.D.I.T.H
           </h1>
           <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: 'white' }}>
-       Even Dead I'm The Hero.
+        Even Dead I'm The Hero
         
           </h1>
           <div style={{ paddingBottom: '40px' }}>
