@@ -21,7 +21,7 @@ export default function Page() {
     if (isAppleDevice) {
       setStoreUrl("https://apps.apple.com/us/app/edith-space-assistant/id6450296741");
     } else {
-      setStoreUrl("https://play.google.com/store/apps/details?id=com.skrrteam.skrr");
+      setStoreUrl("https://play.google.com/store/apps/details?id=com.openai.chatgpt&hl=en_US");
     }
 
     const handleResize = () => {
