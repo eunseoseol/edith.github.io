@@ -19,9 +19,9 @@ export default function Page() {
     const isAppleDevice = /iphone|ipad|ipod|macintosh/.test(userAgent);
 
     if (isAppleDevice) {
-      setStoreUrl("https://youtube.com/@eunseoseol");
+      setStoreUrl("https://apps.apple.com/kr/app/edith-space-assistant/id6450296741?l=en-GB");
     } else {
-      setStoreUrl("https://www.youtube.com/@eunseoseol");
+      setStoreUrl("https://apps.apple.com/kr/app/edith-space-assistant/id6450296741?l=en-GB");
     }
 
     const handleResize = () => {
@@ -48,10 +48,10 @@ export default function Page() {
               <img src="/book.png" alt="Book" style={imageStyle} />
             </a>
             <h1 style={{ fontSize: isMobile ? '16px' : '48px', fontWeight: 'bold', color: 'white' }}>
-          Eunseo Seol
+         E.D.I.T.H
             </h1>
             <h1 style={{ fontSize: isMobile ? '16px' : '48px', fontWeight: 'bold', color: 'white' }}>
-            It from bit.
+          Even Dead I'm The Hero.
             </h1>
           </div>
         </main>
