@@ -179,7 +179,7 @@ const Page = () => {
             placeholder="제목을 입력해주세요."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            style={{ borderRadius: '16px' }} // cornerRadius 추가
+            style={{ borderRadius: '16px', fontSize: '16px' }} // cornerRadius 및 폰트 크기 추가
           />
         </div>
         <div className="mb-4" style={{ height: 'calc(100vh - 300px)' }}>
@@ -191,7 +191,7 @@ const Page = () => {
               onChange={setContent}
               modules={modules}
               className="border rounded"
-              style={{ height: '80%', borderRadius: '16px' }}  // cornerRadius 추가
+              style={{ height: '80%', borderRadius: '16px', fontSize: '16px' }}  // cornerRadius 및 폰트 크기 추가
             />
           </div>
         </div>
