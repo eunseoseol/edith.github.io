@@ -184,14 +184,14 @@ const Page = () => {
         </div>
         <div className="mb-4" style={{ height: 'calc(100vh - 300px)' }}>
           <label className="block text-sm font-medium mb-2">Content</label>
-          <div style={{ height: '90%' }}>
+          <div style={{ height: '80%' }}>
             <ReactQuill
               ref={quillRef}
               value={content}
               onChange={setContent}
               modules={modules}
               className="border rounded"
-              style={{ height: '90%', borderRadius: '16px' }}  // cornerRadius 추가
+              style={{ height: '80%', borderRadius: '16px' }}  // cornerRadius 추가
             />
           </div>
         </div>
