@@ -90,7 +90,7 @@ const Navbar = () => {
           <li className="p-2 cursor-pointer">
             <Link href="/">
               <span className="text-xl lg:text-1.5xl font-semibold text-black-600">
-                스타트업 커뮤니티
+                스타트업 창업가 커뮤니티
               </span>
             </Link>
           </li>

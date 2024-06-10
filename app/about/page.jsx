@@ -184,7 +184,7 @@ const Page = () => {
         </div>
         <div className="mb-4" style={{ height: 'calc(100vh - 300px)' }}>
           <label className="block text-sm font-medium mb-2">Content</label>
-          <div style={{ height: '80%' }}>
+          <div style={{ height: '90%' }}>
             <ReactQuill
               ref={quillRef}
               value={content}
