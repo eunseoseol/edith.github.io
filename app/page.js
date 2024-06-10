@@ -74,7 +74,17 @@ export default function Home() {
 
   return (
 
- 
+    <Head>
+        <title>Home Page - 스타트업 창업가 커뮤니티</title>
+        <meta property="og:title" content="Home Page - 스타트업 창업가 커뮤니티" />
+        <meta property="og:description" content="Made by Eunseo Seol" />
+        <meta property="og:image" content="https://photos5.appleinsider.com/gallery/product_pages/189-hero.jpg" />
+        <meta property="og:url" content="https://edith3141.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Home Page - Your Site Title" />
+        <meta name="twitter:description" content="Description of your home page" />
+        <meta name="twitter:image" content="https://example.com/home-page-image.jpg" />
+      </Head>
     <main className="p-4 flex flex-col lg:flex-row">
       {/* Articles Section */}
       
