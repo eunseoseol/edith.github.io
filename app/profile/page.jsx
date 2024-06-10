@@ -27,16 +27,24 @@ const Page = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       if (user) {
-        // 아티클 가져오기
+        // Fetch articles
         const q = query(collection(db, 'JarvisArticle'), where('author', '==', user.email));
         const querySnapshot = await getDocs(q);
-        const articlesData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
+        const articlesData = await Promise.all(querySnapshot.docs.map(async (docSnapshot) => {
+          const data = docSnapshot.data();
+          const userDocRef = doc(db, 'users', data.author);
+          const userDocSnapshot = await getDoc(userDocRef);
+          const userData = userDocSnapshot.exists() ? userDocSnapshot.data() : { profile: { name: 'Unknown', profileImage: null } };
+          return {
+            id: docSnapshot.id,
+            ...data,
+            authorName: userData.profile?.name || 'Unknown',
+            authorProfileImage: userData.profileImage || null
+          };
         }));
         setArticles(articlesData);
 
-        // 사용자 정보 가져오기
+        // Fetch user profile data
         const userDocRef = doc(db, 'users', user.email);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
@@ -76,7 +84,7 @@ const Page = () => {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           setProfilePic(downloadURL);
 
-          // Firestore에 URL 저장
+          // Save URL to Firestore
           const userDocRef = doc(db, 'users', user.email);
           await updateDoc(userDocRef, {
             profileImage: downloadURL,
@@ -93,7 +101,7 @@ const Page = () => {
       socialLinks,
     });
     alert("Profile updated successfully!");
-    setIsEditing(false); // 편집 모드 종료
+    setIsEditing(false); // Exit editing mode
   };
 
   const handleInputChange = (e) => {
@@ -113,7 +121,7 @@ const Page = () => {
       const tempDiv = document.createElement("div");
       tempDiv.innerHTML = html;
       const textContent = tempDiv.textContent || tempDiv.innerText || "";
-      return textContent.substring(0, 200) + (textContent.length > 200 ? "..." : ""); // 첫 200자 표시
+      return textContent.substring(0, 200) + (textContent.length > 200 ? "..." : ""); // Display first 200 characters
     }
     return "";
   };
@@ -126,6 +134,12 @@ const Page = () => {
       return img ? img.src : null;
     }
     return null;
+  };
+
+  const calculateReadTime = (text) => {
+    const wordsPerMinute = 200;
+    const words = text.split(/\s+/).length;
+    return Math.ceil(words / wordsPerMinute);
   };
 
   const handleDelete = async (id) => {
@@ -191,38 +205,50 @@ const Page = () => {
               <div className="articles">
                 {articles.map(article => (
                   <Link key={article.id} href={`/article/${article.id}`} legacyBehavior>
-                    <a className="border p-4 mb-4 flex hover:bg-gray-100 transition-colors duration-200 rounded-lg">
+                    <a className="block border p-4 mb-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200 rounded-lg">
                       {extractFirstImage(article.content) && (
-                        <div className="w-1/4 mr-4">
+                        <div className="mb-4">
                           <img src={extractFirstImage(article.content)} alt={article.title} className="w-full h-auto rounded-lg" />
                         </div>
                       )}
-                      <div className="w-3/4">
-                        <h2 className="text-xl font-bold">{article.title}</h2>
-                        <p className="text-sm text-gray-500 mb-2">
-                          작성자: {user.displayName} • {formatDistanceToNow(new Date(article.createdAt.toDate()))} 전
-                        </p>
-                        <p className="mb-4">{extractPreviewText(article.content)}</p>
-                        <div className="flex space-x-2">
-                          <Link href={`/edit/${article.id}`} legacyBehavior>
-                            <a
-                              onClick={(e) => e.stopPropagation()}
-                              className="bg-green-500 text-white p-2 rounded flex items-center"
-                            >
-                              <FiEdit />
-                            </a>
-                          </Link>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                              handleDelete(article.id);
-                            }}
-                            className="bg-red-500 text-white p-2 rounded flex items-center"
-                          >
-                            <FiTrash2 />
-                          </button>
+                      <div className="flex items-center mb-4">
+                        {article.authorProfileImage ? (
+                          <img
+                            src={article.authorProfileImage}
+                            alt="Profile"
+                            className="w-8 h-8 rounded-full mr-2"
+                          />
+                        ) : (
+                          <div className="w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center mr-2">
+                            {article.authorName.slice(0, 2)}
+                          </div>
+                        )}
+                        <div className="text-sm text-gray-500">
+                          <p className="font-bold">{article.authorName}</p>
+                          <p>{calculateReadTime(article.content)} min read • {formatDistanceToNow(new Date(article.createdAt.toDate()))} 전</p>
                         </div>
+                      </div>
+                      <h2 className="text-xl font-bold mb-2">{article.title}</h2>
+                      <p className="mb-4">{extractPreviewText(article.content)}</p>
+                      <div className="flex space-x-2">
+                        <Link href={`/edit/${article.id}`} legacyBehavior>
+                          <a
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-green-500 text-white p-2 rounded flex items-center"
+                          >
+                            <FiEdit />
+                          </a>
+                        </Link>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            handleDelete(article.id);
+                          }}
+                          className="bg-red-500 text-white p-2 rounded flex items-center"
+                        >
+                          <FiTrash2 />
+                        </button>
                       </div>
                     </a>
                   </Link>
